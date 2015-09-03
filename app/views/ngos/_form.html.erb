@@ -1,0 +1,37 @@
+<%= form_for(@ngo) do |f| %>
+  <% if @ngo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ngo.errors.count, "error") %> prohibited this ngo from being saved:</h2>
+
+      <ul>
+      <% @ngo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :logo %><br>
+    <%= f.text_field :logo %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :webpage %><br>
+    <%= f.text_field :webpage %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
