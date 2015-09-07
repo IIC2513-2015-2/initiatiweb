@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150901125012) do
+ActiveRecord::Schema.define(version: 20150903115917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 20150901125012) do
 
   add_index "ngos", ["name"], name: "index_ngos_on_name", using: :btree
 
+  create_table "ngos_users", id: false, force: :cascade do |t|
+    t.integer "ngo_id"
+    t.integer "user_id"
+  end
+
+  add_index "ngos_users", ["ngo_id", "user_id"], name: "index_ngos_users_on_ngo_id_and_user_id", unique: true, using: :btree
+  add_index "ngos_users", ["ngo_id"], name: "index_ngos_users_on_ngo_id", using: :btree
+  add_index "ngos_users", ["user_id"], name: "index_ngos_users_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name",                null: false
     t.string   "last_name",                 null: false
@@ -54,4 +63,6 @@ ActiveRecord::Schema.define(version: 20150901125012) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
   add_foreign_key "initiatives", "ngos"
+  add_foreign_key "ngos_users", "ngos"
+  add_foreign_key "ngos_users", "users"
 end
