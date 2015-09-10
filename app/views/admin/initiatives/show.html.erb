@@ -27,8 +27,8 @@
 
 <p>
   <strong>Ngo:</strong>
-  <%= @initiative.ngo %>
+  <%= link_to @initiative.ngo.name, admin_ngo_path(@initiative.ngo) %>
 </p>
 
-<%= link_to 'Edit', edit_initiative_path(@initiative) %> |
-<%= link_to 'Back', initiatives_path %>
+<%= link_to 'Edit', edit_admin_initiative_path(@initiative) %> |
+<%= link_to 'Back', admin_initiatives_path %>

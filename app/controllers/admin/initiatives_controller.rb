@@ -1,4 +1,4 @@
-class InitiativesController < ApplicationController
+class Admin::InitiativesController < ApplicationController
   before_action :set_initiative, only: [:show, :edit, :update, :destroy]
 
   # GET /initiatives
@@ -28,8 +28,8 @@ class InitiativesController < ApplicationController
 
     respond_to do |format|
       if @initiative.save
-        format.html { redirect_to @initiative, notice: 'Initiative was successfully created.' }
-        format.json { render :show, status: :created, location: @initiative }
+        format.html { redirect_to admin_initiative_path(@initiative), notice: 'Initiative was successfully created.' }
+        format.json { render :show, status: :created, location: admin_initiative_path(@initiative) }
       else
         format.html { render :new }
         format.json { render json: @initiative.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class InitiativesController < ApplicationController
   def update
     respond_to do |format|
       if @initiative.update(initiative_params)
-        format.html { redirect_to @initiative, notice: 'Initiative was successfully updated.' }
-        format.json { render :show, status: :ok, location: @initiative }
+        format.html { redirect_to admin_initiative_path(@initiative), notice: 'Initiative was successfully updated.' }
+        format.json { render :show, status: :ok, location: admin_initiative_path(@initiative) }
       else
         format.html { render :edit }
         format.json { render json: @initiative.errors, status: :unprocessable_entity }
@@ -56,7 +56,7 @@ class InitiativesController < ApplicationController
   def destroy
     @initiative.destroy
     respond_to do |format|
-      format.html { redirect_to initiatives_url, notice: 'Initiative was successfully destroyed.' }
+      format.html { redirect_to admin_initiatives_url, notice: 'Initiative was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

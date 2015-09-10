@@ -22,9 +22,9 @@
         <td><%= ngo.email %></td>
         <td><%= ngo.description %></td>
         <td><%= ngo.webpage %></td>
-        <td><%= link_to 'Show', ngo %></td>
-        <td><%= link_to 'Edit', edit_ngo_path(ngo) %></td>
-        <td><%= link_to 'Destroy', ngo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', admin_ngo_path(ngo) %></td>
+        <td><%= link_to 'Edit', edit_admin_ngo_path(ngo) %></td>
+        <td><%= link_to 'Destroy', admin_ngo_path(ngo), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Ngo', new_ngo_path %>
+<%= link_to 'New Ngo', new_admin_ngo_path %>

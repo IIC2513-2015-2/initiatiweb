@@ -1,4 +1,4 @@
-class NgosController < ApplicationController
+class Admin::NgosController < ApplicationController
   before_action :set_ngo, only: [:show, :edit, :update, :destroy]
 
   # GET /ngos
@@ -28,8 +28,8 @@ class NgosController < ApplicationController
 
     respond_to do |format|
       if @ngo.save
-        format.html { redirect_to @ngo, notice: 'Ngo was successfully created.' }
-        format.json { render :show, status: :created, location: @ngo }
+        format.html { redirect_to admin_ngo_path(@ngo), notice: 'Ngo was successfully created.' }
+        format.json { render :show, status: :created, location: admin_ngo_path(@ngo) }
       else
         format.html { render :new }
         format.json { render json: @ngo.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class NgosController < ApplicationController
   def update
     respond_to do |format|
       if @ngo.update(ngo_params)
-        format.html { redirect_to @ngo, notice: 'Ngo was successfully updated.' }
-        format.json { render :show, status: :ok, location: @ngo }
+        format.html { redirect_to admin_ngo_path(@ngo), notice: 'Ngo was successfully updated.' }
+        format.json { render :show, status: :ok, location: admin_ngo_path(@ngo) }
       else
         format.html { render :edit }
         format.json { render json: @ngo.errors, status: :unprocessable_entity }
@@ -56,7 +56,7 @@ class NgosController < ApplicationController
   def destroy
     @ngo.destroy
     respond_to do |format|
-      format.html { redirect_to ngos_url, notice: 'Ngo was successfully destroyed.' }
+      format.html { redirect_to admin_ngos_url, notice: 'Ngo was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

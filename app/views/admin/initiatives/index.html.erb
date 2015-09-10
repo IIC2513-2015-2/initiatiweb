@@ -23,10 +23,10 @@
         <td><%= initiative.image %></td>
         <td><%= initiative.active %></td>
         <td><%= initiative.hashtag %></td>
-        <td><%= link_to initiative.ngo.name, initiative.ngo %></td>
-        <td><%= link_to 'Show', initiative %></td>
-        <td><%= link_to 'Edit', edit_initiative_path(initiative) %></td>
-        <td><%= link_to 'Destroy', initiative, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to initiative.ngo.name, admin_ngo_path(initiative.ngo) %></td>
+        <td><%= link_to 'Show', admin_initiative_path(initiative) %></td>
+        <td><%= link_to 'Edit', edit_admin_initiative_path(initiative) %></td>
+        <td><%= link_to 'Destroy', admin_initiative_path(initiative), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Initiative', new_initiative_path %>
+<%= link_to 'New Initiative', new_admin_initiative_path %>
