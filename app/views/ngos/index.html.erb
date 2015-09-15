@@ -1,0 +1,11 @@
+<h1>ONGs en Initiatiweb</h1>
+<p>Éstas son las ONGs que están creando iniciativas en Initiatiweb:</p>
+<ul>
+<% @ngos.each do |ngo| %>
+  <li>
+    <%= link_to ngo do %>
+      <%= image_tag('placeholder.gif') %> <%= ngo.name %>
+    <% end %>
+  </li>
+<% end %>
+</ul>
