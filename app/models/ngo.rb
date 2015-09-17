@@ -5,4 +5,9 @@ class Ngo < ActiveRecord::Base
   validates :logo, presence: true
   validates :email, presence: true
   validates :webpage, presence: true
+
+  def last_initiatives(quantity = 5)
+    initiatives.order('id DESC').limit(quantity)
+  end
+
 end

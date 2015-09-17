@@ -1,0 +1,6 @@
+<h1>Iniciativas de <%= @ngo.name %></h1>
+<ul>
+  <% @initiatives.each do |initiative| %>
+    <li><%= link_to initiative.title, ngo_initiative_path(@ngo, initiative) %></li>
+  <% end %>
+</ul>

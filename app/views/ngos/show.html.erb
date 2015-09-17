@@ -1,2 +1,8 @@
-<h1>Ngos#show</h1>
-<p>Find me in app/views/ngos/show.html.erb</p>
+<h1><%= @ngo.name %></h1>
+<p><%= @ngo.description %></p>
+<p><%= link_to 'Página web', @ngo.webpage %></p>
+<ul>
+  <% @last_initiatives.each do |initiative| %>
+    <li><%= link_to initiative.title, ngo_initiative_path(@ngo, initiative) %></li>
+  <% end %>
+</ul>
