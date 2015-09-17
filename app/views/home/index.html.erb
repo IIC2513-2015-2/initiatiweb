@@ -1,0 +1,7 @@
+<h1>Initiatiweb</h1>
+<p><%= image_tag 'logo.png' %></p>
+<ul>
+  <% @random_initiatives.each do |initiative| %>
+    <li><%= link_to initiative.title, ngo_initiative_path(initiative.ngo, initiative) %></li>
+  <% end %>
+</ul>
