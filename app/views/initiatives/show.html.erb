@@ -1,3 +1,5 @@
 <h1><%= @initiative.title %></h1>
 <h2>#<%= @initiative.hashtag %></h2>
-<p><%= @initiative.description %></p>
+<p id="initiative-description">
+  <%= image_tag 'placeholder.gif' %><%= @initiative.description %>
+</p>

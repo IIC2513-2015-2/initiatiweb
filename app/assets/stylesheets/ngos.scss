@@ -1,3 +1,42 @@
 // Place all the styles related to the Ngos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#ngo-content {
+  position: relative;
+}
+
+#ngo-content a.webpage {
+  position: absolute;
+  top: 0px;
+  right: 100px;
+}
+
+.ngo-list {
+  padding: 0;
+  text-align: center;
+}
+
+.ngo-list li {
+  width: 250px;
+  list-style: none;
+  margin: 10px;
+  display: inline-block;
+  vertical-align: top;
+  border: 1px solid #ccc;
+}
+
+.ngo-list a {
+  display: block;
+  height: 120px;
+  padding-top: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.ngo-list img {
+  width: 150px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}

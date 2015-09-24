@@ -1,7 +1,14 @@
-<h1>Initiatiweb</h1>
-<p><%= image_tag 'logo.png' %></p>
+<h1>Bienvenido a <strong>Initiatiweb</strong></h1>
+<div>
+  <%= image_tag 'logo.png', class: 'central-logo' %>
+</div>
+<h2>Algunas de las iniciativas…</h2>
 <ul>
   <% @random_initiatives.each do |initiative| %>
-    <li><%= link_to initiative.title, ngo_initiative_path(initiative.ngo, initiative) %></li>
+    <li>
+      <%= link_to ngo_initiative_path(initiative.ngo, initiative) do %>
+        <%= initiative.ngo.name %> - <%= initiative.title %>
+      <% end %>
+    </li>
   <% end %>
 </ul>

@@ -1,8 +1,10 @@
-<h1><%= @ngo.name %></h1>
-<p><%= @ngo.description %></p>
-<p><%= link_to 'Página web', @ngo.webpage %></p>
-<ul>
-  <% @last_initiatives.each do |initiative| %>
-    <li><%= link_to initiative.title, ngo_initiative_path(@ngo, initiative) %></li>
-  <% end %>
-</ul>
+<div id="ngo-content">
+  <h1><%= @ngo.name %></h1>
+  <p><%= @ngo.description %></p>
+  <p><%= link_to 'Página web', @ngo.webpage, class: 'webpage' %></p>
+  <ul>
+    <% @last_initiatives.each do |initiative| %>
+      <li><%= link_to initiative.title, ngo_initiative_path(@ngo, initiative) %></li>
+    <% end %>
+  </ul>
+</div>
