@@ -24,6 +24,16 @@
   display: inline-block;
   vertical-align: top;
   border: 1px solid #ccc;
+  transition: 0.5s all;
+}
+
+.ngo-list li:hover {
+  background: #ddffcc;
+  transform: rotate(5deg) scale(1.1);
+}
+
+.ngo-list li:nth-child(odd):hover {
+  transform: rotate(-5deg) scale(1.1);
 }
 
 .ngo-list a {

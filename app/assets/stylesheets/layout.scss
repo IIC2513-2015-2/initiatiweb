@@ -22,3 +22,12 @@ header {
 #main-content {
   padding: 0 10px;
 }
+
+a {
+  color: #2a2;
+  transition: 0.5s all;
+}
+
+a:hover {
+  color: #5d5;
+}
