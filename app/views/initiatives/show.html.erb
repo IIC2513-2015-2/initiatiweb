@@ -1,5 +1,24 @@
-<h1><%= @initiative.title %></h1>
-<h2>#<%= @initiative.hashtag %></h2>
-<p id="initiative-description">
-  <%= image_tag 'placeholder.gif' %><%= @initiative.description %>
-</p>
+<div id="initiative-container">
+  <div id="initiative-content">
+    <h1><%= @initiative.title %></h1>
+    <h2>#<%= @initiative.hashtag %></h2>
+    <p id="initiative-description">
+      <%= image_tag 'placeholder.gif' %><%= @initiative.description %>
+    </p>
+  </div>
+  <aside>
+    <% if @user_sign %>
+      <p>Gracias por apoyar nuestra iniciativa, <%= current_user.first_name %></p>
+    <% else %>
+      <h2>Tu firma respaldará nuestra iniciativa</h2>
+      <%= form_for(@initiative_sign, url: initiative_sign_path(@initiative)) do |f| %>
+        <p>Estás firmando como "<%= @current_user.first_name %>"</p>
+        <%= f.label :message, 'Mensaje junto a tu firma (opcional)' %>
+        <%= f.text_area :message, placeholder: 'Estoy firmando porque…' %>
+        <div class="buttons">
+          <%= f.submit :Firma %>
+        </div>
+      <% end %>
+    <% end %>
+  </aside>
+</div>

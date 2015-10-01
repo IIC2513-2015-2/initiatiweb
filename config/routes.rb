@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     resources :initiatives, only: [:index, :show]
   end
 
+  resources :initiatives, only: [] do
+    resource :sign, only: [:create], controller: :initiative_signs
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
