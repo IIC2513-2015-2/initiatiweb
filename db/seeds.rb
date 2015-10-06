@@ -15,7 +15,8 @@ ngos = ngo_names.map do |name|
     name: name,
     description: Faker::Lorem.paragraph(2),
     email: email,
-    webpage: url
+    webpage: url,
+    logo: 'placeholder.gif'
   )
 end
 
