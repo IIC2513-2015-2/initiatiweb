@@ -1,0 +1,25 @@
+<h1>Registra una nueva cuenta</h1>
+<p>Completa todos los campos del formulario</p>
+<div>
+  <%= form_for @user do |f| %>
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+    </div>
+    <div class="field">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+    </div>
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Registrar' %>
+    </div>
+  <% end %>
+</div>
