@@ -1,0 +1,18 @@
+<%= session[:user_id] %>
+
+<h1>Inicia sesión</h1>
+<div>
+  <%= form_for :session, url: session_path do |f| %>
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Login" %>
+    </div>
+  <% end %>
+</div>
