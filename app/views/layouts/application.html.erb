@@ -8,11 +8,22 @@
 </head>
 <body>
 
-<header>HEADER</header>
-
+<header>
+  <% if current_user %>
+    Bienvenido, <%= current_user.first_name %>
+    <%= link_to 'Salir', session_path, method: :delete %>
+  <% else %>
+    <%= link_to 'Ingresa', new_session_path %>
+  <% end %>
+</header>
 <% if flash.notice %>
   <div class="notification">
     <%= flash.notice %>
+  </div>
+<% end %>
+<% if flash.alert %>
+  <div class="notification error">
+    <%= flash.alert %>
   </div>
 <% end %>
 <div id="main-content">

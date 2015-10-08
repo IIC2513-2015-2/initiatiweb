@@ -9,12 +9,15 @@ class SessionsController < ApplicationController
     user = User.find_by(email: email, password: password)
     if user
       session[:user_id] = user.id
+      redirect_to root_path, notice: 'Sesión iniciada exitosamente'
     else
-
+      flash.alert = 'Usuario o contraseña incorrectos'
+      render :new
     end
-    redirect_to root_path
   end
 
   def destroy
+    reset_session
+    redirect_to root_path, notice: 'Sesión terminada exitosamente'
   end
 end
