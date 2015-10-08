@@ -10,6 +10,11 @@
 
 <header>HEADER</header>
 
+<% if flash.notice %>
+  <div class="notification">
+    <%= flash.notice %>
+  </div>
+<% end %>
 <div id="main-content">
   <%= yield %>
 </div>

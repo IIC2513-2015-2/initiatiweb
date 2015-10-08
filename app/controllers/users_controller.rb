@@ -5,7 +5,12 @@ class UsersController < ApplicationController
 
   def create
     user_params = params.require(:user).permit(:email, :first_name, :last_name, :password)
-    @user = User.create(user_params)
-    redirect_to root_path
+    @user = User.new(user_params)
+    if @user.save
+      flash.notice = 'Cuenta creada exitosamente'
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 end

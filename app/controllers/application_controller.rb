@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   # TODO: reemplazar por usuario con sesión iniciada o nil
   def current_user
-    @current_user ||= User.first
+    return @current_user if defined? @current_user
+    @current_user = User.find(session[:user_id]) if session.key?(:user_id)
   end
 end
