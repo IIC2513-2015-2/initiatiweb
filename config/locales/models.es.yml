@@ -1,0 +1,15 @@
+es:
+  activerecord:
+    models:
+      user: Usuario
+    attributes:
+      user:
+        first_name: Nombre
+        last_name: Apellido
+    errors:
+      models:
+        user:
+          blank: 'Debes ingresar el %{attribute}'
+          attributes:
+            first_name:
+              blank: ¿Es que acaso no tienes nombre?

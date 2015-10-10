@@ -1,5 +1,5 @@
-<h1>Registra una nueva cuenta</h1>
-<p>Completa todos los campos del formulario</p>
+<h1><%= t 'signup.create_new_account' %></h1>
+<p><%= t 'signup.fill_entire_form' %></p>
 <div>
   <%= simple_form_for @user, html: { novalidate: true } do |f| %>
     <%= f.input :email %>
@@ -7,7 +7,7 @@
     <%= f.input :last_name %>
     <%= f.input :password %>
     <div class="actions">
-      <%= f.submit 'Registrar' %>
+      <%= f.submit t('signup.signup') %>
     </div>
   <% end %>
 </div>

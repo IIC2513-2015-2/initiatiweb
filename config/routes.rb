@@ -2,23 +2,27 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  namespace :admin do
-    resources :initiatives
-    resources :ngos
-    resources :users
+  get '(:locale)', to: 'home#index', as: :localized_root
+
+  scope '(/:locale)' do
+    namespace :admin do
+      resources :initiatives
+      resources :ngos
+      resources :users
+    end
+
+    resources :ngos, only: [:index, :show] do
+      resources :initiatives, only: [:index, :show]
+    end
+
+    resources :initiatives, only: [] do
+      resource :sign, only: [:create], controller: :initiative_signs
+    end
+
+    resources :users, only: [:new, :create], path_names: {new: :signup}
+
+    resource :session, only: [:new, :create, :destroy]
   end
-
-  resources :ngos, only: [:index, :show] do
-    resources :initiatives, only: [:index, :show]
-  end
-
-  resources :initiatives, only: [] do
-    resource :sign, only: [:create], controller: :initiative_signs
-  end
-
-  resources :users, only: [:new, :create], path_names: {new: :signup}
-
-  resource :session, only: [:new, :create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
