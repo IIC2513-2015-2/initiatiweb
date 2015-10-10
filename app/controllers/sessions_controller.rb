@@ -6,10 +6,10 @@ class SessionsController < ApplicationController
   def create
     email = params[:session][:email]
     password = params[:session][:password]
-    user = User.find_by(email: email, password: password)
-    if user
+    user = User.find_by(email: email)
+    if user.try(:authenticate, password)
       session[:user_id] = user.id
-      redirect_to root_path, notice: 'Sesión iniciada exitosamente'
+      redirect_to localized_root_path, notice: 'Sesión iniciada exitosamente'
     else
       flash.alert = 'Usuario o contraseña incorrectos'
       render :new
@@ -18,6 +18,6 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    redirect_to root_path, notice: 'Sesión terminada exitosamente'
+    redirect_to localized_root_path, notice: 'Sesión terminada exitosamente'
   end
 end
