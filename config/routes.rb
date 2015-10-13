@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
+  localesRegexp = /#{I18n.available_locales.join('|')}/
+
   root 'home#index'
 
-  get '(:locale)', to: 'home#index', as: :localized_root
+  scope '(:locale)', locale: localesRegexp do
+    get '/', to: 'home#index', as: :localized_root
 
-  scope '(/:locale)' do
     namespace :admin do
       resources :initiatives
       resources :ngos

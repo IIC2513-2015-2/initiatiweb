@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
     @current_user = User.find(session[:user_id]) if session.key?(:user_id)
   end
 
-  def default_url_options(options = {})
-    I18n.locale == I18n.default_locale ? options : { locale: I18n.locale }.merge(options)
+  def default_url_options
+    {locale: I18n.locale}
   end
 
   private
