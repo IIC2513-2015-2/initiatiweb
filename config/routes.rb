@@ -21,7 +21,9 @@ Rails.application.routes.draw do
       resource :sign, only: [:create], controller: :initiative_signs
     end
 
-    resources :users, only: [:new, :create], path_names: {new: :signup}
+    resources :users, only: [:new, :create], path_names: {new: :signup} do
+      get 'validate/:token', on: :collection, to: :validate, as: :validate
+    end
 
     resource :session, only: [:new, :create, :destroy]
   end

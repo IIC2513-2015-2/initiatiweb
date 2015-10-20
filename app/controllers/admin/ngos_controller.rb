@@ -25,7 +25,6 @@ class Admin::NgosController < ApplicationController
   # POST /ngos.json
   def create
     @ngo = Ngo.new(ngo_params)
-
     respond_to do |format|
       if @ngo.save
         format.html { redirect_to admin_ngo_path(@ngo), notice: 'Ngo was successfully created.' }
