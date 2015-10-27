@@ -1,4 +1,4 @@
-<%= form_for(@ngo, url: @ngo.new_record? ? admin_ngos_path : admin_ngo_path(@ngo)) do |f| %>
+<%= form_for(@ngo, url: @ngo.new_record? ? admin_ngos_path : admin_ngo_path(@ngo), html: {multipart: true}) do |f| %>
   <% if @ngo.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@ngo.errors.count, "error") %> prohibited this ngo from being saved:</h2>
@@ -17,7 +17,8 @@
   </div>
   <div class="field">
     <%= f.label :logo %><br>
-    <%= f.text_field :logo %>
+    <%= f.file_field :logo %>
+    Current: <%= image_tag @ngo.logo.url(:medium) %>
   </div>
   <div class="field">
     <%= f.label :email %><br>

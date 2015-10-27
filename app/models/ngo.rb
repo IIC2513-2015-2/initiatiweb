@@ -5,6 +5,8 @@ class Ngo < ActiveRecord::Base
   validates :logo, presence: true
   validates :email, presence: true
   validates :webpage, presence: true
+  has_attached_file :logo, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: ActionController::Base.helpers.asset_path('placeholder.gif')
+  validates_attachment_content_type :logo, content_type: /\Aimage\/.*\Z/
 
   def last_initiatives(quantity = 5)
     initiatives.order('id DESC').limit(quantity)

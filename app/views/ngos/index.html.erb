@@ -4,7 +4,7 @@
 <% @ngos.each do |ngo| %>
   <li>
     <%= link_to ngo do %>
-      <%= image_tag('placeholder.gif') %> <%= ngo.name %>
+      <%= image_tag(ngo.logo.url(:thumb)) %> <%= ngo.name %>
     <% end %>
   </li>
 <% end %>
