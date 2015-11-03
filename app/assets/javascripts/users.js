@@ -25,7 +25,7 @@
     $errorMessage.html(message).show();
   }
 
-  $(function() {
+  function userValidation() {
     $('#new_user').on('submit', function(event) {
       var $form = $(this);
       clearErrors($form);
@@ -39,5 +39,10 @@
       });
 
     });
-  });
+  }
+  // Debemos usar page:change en lugar de DOMContentLoaded (jquery 'ready')
+  // para que el callback se ejecute no sólo en ese evento sino también
+  // al cambiar de página usando turbolinks (page:change no es un evento estándar,
+  // sino que gatillado por turbolinks al cambiar de página o al cargar un DOM inicial, DOMContentLoaded)
+  $(document).on('page:change', userValidation);
 })();
