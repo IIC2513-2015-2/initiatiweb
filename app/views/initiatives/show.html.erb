@@ -6,24 +6,7 @@
       <%= image_tag 'placeholder.gif' %><%= @initiative.description %>
     </p>
   </div>
-  <aside>
-    <div id="signs-count">Llevamos <strong><%= @signs_count %></strong> firma(s)</div>
-    <% if @user_sign %>
-      <p>Gracias por apoyar nuestra iniciativa, <%= current_user.first_name %></p>
-    <% else %>
-      <h2>Tu firma respaldará nuestra iniciativa</h2>
-      <% if @current_user %>
-        <%= form_for(@initiative_sign, url: initiative_sign_path(@initiative)) do |f| %>
-          <p>Estás firmando como "<%= @current_user.first_name %>"</p>
-          <%= f.label :message, 'Mensaje junto a tu firma (opcional)' %>
-          <%= f.text_area :message, placeholder: 'Estoy firmando porque…' %>
-          <div class="buttons">
-            <%= f.submit :Firma %>
-          </div>
-        <% end %>
-      <% else %>
-        <p><%= link_to 'Inicia sesión', new_session_path %> para firmar.</p>
-      <% end %>
-    <% end %>
+  <aside id="signs-container">
+    <%= render partial: 'signs' %>
   </aside>
 </div>
