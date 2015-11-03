@@ -18,7 +18,9 @@ Rails.application.routes.draw do
     end
 
     resources :initiatives, only: [] do
-      resource :sign, only: [:create], controller: :initiative_signs
+      resource :sign, only: [:create], controller: :initiative_signs do
+        get 'count', on: :collection
+      end
     end
 
     resources :users, only: [:new, :create], path_names: {new: :signup} do

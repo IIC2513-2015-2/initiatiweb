@@ -1,4 +1,8 @@
-<div id="signs-count">Llevamos <strong><%= @signs_count %></strong> firma(s)</div>
+<div id="signs-count">
+  Llevamos
+  <%= content_tag :strong, @signs_count, data: { 'update-url' => count_initiative_sign_path(@initiative) } %>
+  firma(s)
+</div>
 <% if @user_sign %>
   <p>Gracias por apoyar nuestra iniciativa, <%= current_user.first_name %></p>
 <% else %>

@@ -22,9 +22,14 @@ class InitiativeSignsController < ApplicationController
     #   format.js { render text: 'alert("Gracias por firmar");' }
     # end
   end
+
+  def count
     initiative = Initiative.find(params[:initiative_id])
-    initiative_sign = InitiativeSign.create(initiative_sign_params.merge(user_id: current_user.id, initiative_id: params[:initiative_id]))
-    redirect_to ngo_initiative_path(initiative.ngo, initiative)
+    # Para un objeto pequeño como éste podemos hacerlo directamente.
+    # Pero si es más complejo, es recomendable utilizar json builder (viene en Rails)
+    # o alguna gema que ayude de mejor manera, como Rabl. Ambos permiten generar
+    # el objeto JSON utilizando un template (esto será aún más necesario al crear APIs).
+    render json: { quantity: initiative.signs.count }
   end
 
   private
