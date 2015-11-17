@@ -15,6 +15,11 @@ gem 'uglifier', '>= 1.3.0'
 gem 'simple_form'
 gem 'paperclip', '~> 4.3'
 
+# APIs
+gem 'faraday'
+gem 'active_model_serializers', '>= 0.10.0.rc3'
+
+
 # Usaremos JavaScript directamente, así que comentemos esta línea
 # gem 'coffee-rails', '~> 4.1.0'
 

@@ -7,11 +7,16 @@ class User < ActiveRecord::Base
   has_secure_password
 
   before_create :generate_validation_token
+  before_create :generate_api_key
 
   private
 
   def generate_validation_token
     self.validation_token = SecureRandom.urlsafe_base64(50)
+  end
+
+  def generate_api_key
+    self.api_key = SecureRandom.urlsafe_base64(50)
   end
 
 end
