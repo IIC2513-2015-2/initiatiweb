@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151112123119) do
+ActiveRecord::Schema.define(version: 20151124002716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,17 +42,18 @@ ActiveRecord::Schema.define(version: 20151112123119) do
   add_index "initiatives", ["ngo_id"], name: "index_initiatives_on_ngo_id", using: :btree
 
   create_table "ngos", force: :cascade do |t|
-    t.string   "name",              null: false
+    t.string   "name",               null: false
     t.string   "logo"
     t.string   "email"
     t.text     "description"
     t.string   "webpage"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "logo_file_name"
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.string   "open_data_category"
   end
 
   add_index "ngos", ["name"], name: "index_ngos_on_name", using: :btree

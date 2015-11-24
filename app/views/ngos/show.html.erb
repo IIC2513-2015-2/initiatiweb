@@ -7,4 +7,16 @@
       <li><%= link_to initiative.title, ngo_initiative_path(@ngo, initiative) %></li>
     <% end %>
   </ul>
+  <% if @related_resources && @related_resources.size > 0 %>
+    <div class="related-resources">
+      <h2>Recursos relacionados a "<%= @open_data_category %>" del Portal de Datos Abiertos</h2>
+      <ul>
+        <% @related_resources.each do |resource| %>
+          <% if resource['name'] %>
+            <li><%= link_to resource['name'], resource['url'] %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 </div>
